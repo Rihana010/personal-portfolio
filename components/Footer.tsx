@@ -27,7 +27,7 @@ export default function Footer() {
   const root = useRef<HTMLElement>(null);
   const btn = useRef<HTMLAnchorElement>(null);
   const time = useISTTime();
-  const year = "2026";"
+  const year = "2026";
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
