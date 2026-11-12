@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { gsap, ScrollTrigger, useAfterLoad, prefersReducedMotion } from "@/lib/motion";
+import { gsap, useAfterLoad, prefersReducedMotion } from "@/lib/motion";
 import Marquee from "./Marquee";
 
 export default function Hero() {

@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/motion";
 
 function useISTTime() {
-  const [t, setT] = useState("");
+  const [t, setT] = useState("--:--");
+
   useEffect(() => {
     const fmt = () =>
       new Intl.DateTimeFormat("en-IN", {
@@ -13,10 +14,12 @@ function useISTTime() {
         hour12: false,
         timeZone: "Asia/Kolkata",
       }).format(new Date());
-    setT(fmt());
+
     const id = setInterval(() => setT(fmt()), 15000);
+
     return () => clearInterval(id);
   }, []);
+
   return t;
 }
 
@@ -24,8 +27,7 @@ export default function Footer() {
   const root = useRef<HTMLElement>(null);
   const btn = useRef<HTMLAnchorElement>(null);
   const time = useISTTime();
-  const [year, setYear] = useState("");
-  useEffect(() => setYear(String(new Date().getFullYear())), []);
+  const year = new Date().getFullYear();
 
   useEffect(() => {
     if (prefersReducedMotion()) return;

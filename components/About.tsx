@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/motion";
+import { gsap, prefersReducedMotion } from "@/lib/motion";
 import { useEffect } from "react";
 import { stats } from "@/data/projects";
 
@@ -135,7 +135,7 @@ export default function About() {
         </div>
 
         {/* stats */}
-        {stats.map((s, i) => (
+        {stats.map((s) => (
           <div
             key={s.label}
             className="bento-card flex flex-col justify-between rounded-xl bg-surface p-6 md:col-span-3"
